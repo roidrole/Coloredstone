@@ -1,0 +1,13 @@
+{
+	"package": "roidrole.coloredstone.mixins",
+	"required": true,
+	"refmap": "mixins.coloredstone.refmap.json",
+	"target": "@env(DEFAULT)",
+	"minVersion": "0.8.5",
+	"compatibilityLevel": "JAVA_8",
+	"mixins": [
+		"MixinBlockRedstoneDiode"
+	],
+	"server": [],
+	"client": []
+}
