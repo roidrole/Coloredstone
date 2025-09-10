@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@IFMLLoadingPlugin.Name("PatternBannersCore")
+@IFMLLoadingPlugin.Name("ColoredStoneMixinLoader")
 @IFMLLoadingPlugin.MCVersion(ForgeVersion.mcVersion)
 //Sorting index is, so far, a random number > 1000
 @IFMLLoadingPlugin.SortingIndex(1521)
