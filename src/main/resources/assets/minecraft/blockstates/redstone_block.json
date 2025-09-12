@@ -1,0 +1,32 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cube_all"
+  },
+  "variants": {
+    "inventory": [
+      {
+        "model": "builtin/generated",
+        "transform": "forge:default-item"
+      }
+    ],
+    "color": {
+      "black": {"textures": {"all": "coloredstone:blocks/black"} },
+      "blue": {"textures": {"all": "coloredstone:blocks/blue"} },
+      "brown": {"textures": {"all": "coloredstone:blocks/brown"} },
+      "cyan": {"textures": {"all": "coloredstone:blocks/cyan"} },
+      "gray": {"textures": {"all": "coloredstone:blocks/gray"} },
+      "green": {"textures": {"all": "coloredstone:blocks/green"} },
+      "light_blue": {"textures": {"all": "coloredstone:blocks/lightblue"} },
+      "lime": {"textures": {"all": "coloredstone:blocks/lime"} },
+      "magenta": {"textures": {"all": "coloredstone:blocks/magenta"} },
+      "orange": {"textures": {"all": "coloredstone:blocks/orange"} },
+      "pink": {"textures": {"all": "coloredstone:blocks/pink"} },
+      "purple": {"textures": {"all": "coloredstone:blocks/purple"} },
+      "red": {"textures": {"all": "blocks/redstone_block"} },
+      "silver": {"textures": {"all": "coloredstone:blocks/silver"} },
+      "white": {"textures": {"all": "coloredstone:blocks/white"} },
+      "yellow": {"textures": {"all": "coloredstone:blocks/yellow"} }
+    }
+  }
+}

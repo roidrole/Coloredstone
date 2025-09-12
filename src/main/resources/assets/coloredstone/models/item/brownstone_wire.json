@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "coloredstone:items/brown"
+        "layer0": "coloredstone:items/dust/brown"
     }
 }

@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -52,12 +53,19 @@ public class ColoredStone {
         for(Block block : blockArray){
             ForgeRegistries.BLOCKS.register(block);
         }
+        ForgeRegistries.ITEMS.register(ItemBlockRedstone.INSTANCE);
     }
 
     @SubscribeEvent
     public void registerModels(ModelRegistryEvent event){
         for(Item item : itemMap.values()){
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
+        }
+        for (int i = 0; i < 16; i++) {
+            ModelLoader.setCustomModelResourceLocation(ItemBlockRedstone.INSTANCE, i, new ModelResourceLocation(
+                new ResourceLocation("minecraft", "redstone_block"),
+                "color="+EnumDyeColor.byMetadata(i).getDyeColorName())
+            );
         }
     }
 }

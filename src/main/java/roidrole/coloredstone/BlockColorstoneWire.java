@@ -5,7 +5,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
@@ -26,22 +25,6 @@ public class BlockColorstoneWire extends BlockRedstoneWire {
 		this.setRegistryName(Tags.MOD_ID, color.getName()+"stone_wire");
 		this.setTranslationKey(Tags.MOD_ID+"."+color.getName()+"stone_wire");
 		ColoredStone.blockArray[color.ordinal()] = this;
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void randomDisplayTick(IBlockState state, World world, BlockPos pos, Random rand) {
-		int i = state.getValue(POWER);
-		if(i == 0){return;}
-
-		double posX = (double)pos.getX() + 0.5D + (rand.nextDouble() - 0.5D) * 0.2D;
-		double posY = (double)pos.getY() + 0.0625D;
-		double posZ = (double)pos.getZ() + 0.5D + (rand.nextDouble() - 0.5D) * 0.2D;
-		double f = (double)i / 15.0D;
-		double speedX = f * 0.6D + 0.4D;
-		double speedY = Math.max(0.0D, f * f * 0.7D - 0.5D);
-		double speedZ = Math.max(0.0D, f * f * 0.6D - 0.7D);
-		world.spawnParticle(EnumParticleTypes.REDSTONE, posX, posY, posZ, speedX, speedY, speedZ);
 	}
 
 	@Override
