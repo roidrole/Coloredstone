@@ -7,12 +7,13 @@ import net.minecraft.block.BlockRedstoneDiode;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
-import roidrole.coloredstone.BlockColorstoneWire;
+import roidrole.coloredstone.blocks.BlockColorstoneWire;
 
 //Could probably redirect the == to an instanceOf, but this works, if a bit roundabout
 @Mixin(BlockRedstoneDiode.class)
-public class MixinBlockRedstoneDiode {
+public abstract class MixinBlockRedstoneDiode {
 	@WrapOperation(
 		method = "getPowerOnSide",
 		at = @At(
@@ -41,5 +42,14 @@ public class MixinBlockRedstoneDiode {
 			return Blocks.REDSTONE_WIRE;
 		}
 		return block;
+	}
+
+	/**
+	 * @author roidrole
+	 * @reason I can't work with hard-coded values. It should always have been an instanceOf.
+	 */
+	@Overwrite
+	public static boolean isDiode(IBlockState state){
+		return state.getBlock() instanceof BlockRedstoneDiode;
 	}
 }

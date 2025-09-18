@@ -15,6 +15,9 @@ import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import roidrole.coloredstone.blocks.BlockColorstoneRepeater;
+import roidrole.coloredstone.blocks.BlockColorstoneWire;
+import roidrole.coloredstone.items.ItemBlockRedstone;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -22,8 +25,8 @@ import java.util.Map;
 
 @Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION)
 public class ColoredStone {
-    static Map<EnumDyeColor, Item> itemMap = new EnumMap<>(EnumDyeColor.class);
-    static Block[] blockArray = new Block[16];
+    public static Map<EnumDyeColor, Item> dustMap = new EnumMap<>(EnumDyeColor.class);
+    public static Block[] dustArray = new Block[16];
 
     @Mod.EventHandler
     public void construction(FMLConstructionEvent event){
@@ -35,22 +38,25 @@ public class ColoredStone {
         event.getBlockColors().registerBlockColorHandler(
 			(state, worldIn, pos, tintIndex) ->
                 BlockColorstoneWire.getColor(state),
-            blockArray
+            dustArray
         );
     }
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         for(EnumDyeColor color : EnumDyeColor.values()){
-            itemMap.put(color, new ItemBlock(new BlockColorstoneWire(color)){{
+            dustMap.put(color, new ItemBlock(new BlockColorstoneWire(color)){{
                 this.setRegistryName(block.getRegistryName());
                 this.setTranslationKey(block.getTranslationKey().substring(5));
             }});
+            new BlockColorstoneRepeater(true, color);
+            new BlockColorstoneRepeater(false, color);
+            BlockColorstoneRepeater.poweredMap.get(color).item = BlockColorstoneRepeater.unpoweredMap.get(color).item;
         }
-        for(Item item : itemMap.values()){
+        for(Item item : dustMap.values()){
             ForgeRegistries.ITEMS.register(item);
         }
-        for(Block block : blockArray){
+        for(Block block : dustArray){
             ForgeRegistries.BLOCKS.register(block);
         }
         ForgeRegistries.ITEMS.register(ItemBlockRedstone.INSTANCE);
@@ -58,7 +64,7 @@ public class ColoredStone {
 
     @SubscribeEvent
     public void registerModels(ModelRegistryEvent event){
-        for(Item item : itemMap.values()){
+        for(Item item : dustMap.values()){
             ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
         }
         for (int i = 0; i < 16; i++) {
@@ -66,6 +72,9 @@ public class ColoredStone {
                 new ResourceLocation("minecraft", "redstone_block"),
                 "color="+EnumDyeColor.byMetadata(i).getDyeColorName())
             );
+        }
+        for(BlockColorstoneRepeater block : BlockColorstoneRepeater.unpoweredMap.values()){
+            ModelLoader.setCustomModelResourceLocation(block.item, 0, new ModelResourceLocation(block.item.getRegistryName().toString()));
         }
     }
 }

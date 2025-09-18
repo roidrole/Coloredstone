@@ -1,9 +1,10 @@
-package roidrole.coloredstone;
+package roidrole.coloredstone.items;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemCloth;
 import net.minecraft.item.ItemStack;
+import roidrole.coloredstone.Tags;
 
 public class ItemBlockRedstone extends ItemCloth {
 	public static ItemBlockRedstone INSTANCE = new ItemBlockRedstone();

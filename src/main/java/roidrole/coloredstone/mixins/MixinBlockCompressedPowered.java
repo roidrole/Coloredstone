@@ -7,13 +7,16 @@ import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;
-import roidrole.coloredstone.ItemBlockRedstone;
+import roidrole.coloredstone.items.ItemBlockRedstone;
 
 import static net.minecraft.block.BlockColored.COLOR;
 
@@ -48,5 +51,10 @@ public abstract class MixinBlockCompressedPowered extends Block {
 	@Override
 	protected BlockStateContainer createBlockState() {
 		return new BlockStateContainer(this, COLOR);
+	}
+
+	@Override
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+		return new ItemStack(ItemBlockRedstone.INSTANCE, 1, state.getValue(COLOR).getMetadata());
 	}
 }

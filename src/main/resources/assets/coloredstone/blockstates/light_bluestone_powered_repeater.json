@@ -1,0 +1,34 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"model": "coloredstone:repeater/common_powered",
+		"textures": {
+			"torch": "coloredstone:blocks/torch/on/lightblue",
+			"top": "blocks/repeater_on"
+		}
+	},
+	"variants": {
+		"inventory": [
+			{
+				"model": "builtin/generated",
+				"transform": "forge:default-item"
+			}
+		],
+		"facing": {
+			"south": {},
+			"west": {"y": 90},
+			"north": {"y": 180},
+			"east": {"y": 270}
+		},
+		"delay": {
+			"1": {"submodel": "coloredstone:repeater/1_tick_powered"},
+			"2": {"submodel": "coloredstone:repeater/2_tick_powered"},
+			"3": {"submodel": "coloredstone:repeater/3_tick_powered"},
+			"4": {"submodel": "coloredstone:repeater/4_tick_powered"}
+		},
+		"locked": {
+			"true": {"submodel": "coloredstone:repeater/locked"},
+			"false": {}
+		}
+	}
+}

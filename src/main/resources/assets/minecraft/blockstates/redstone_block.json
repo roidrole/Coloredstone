@@ -11,22 +11,22 @@
       }
     ],
     "color": {
-      "black": {"textures": {"all": "coloredstone:blocks/black"} },
-      "blue": {"textures": {"all": "coloredstone:blocks/blue"} },
-      "brown": {"textures": {"all": "coloredstone:blocks/brown"} },
-      "cyan": {"textures": {"all": "coloredstone:blocks/cyan"} },
-      "gray": {"textures": {"all": "coloredstone:blocks/gray"} },
-      "green": {"textures": {"all": "coloredstone:blocks/green"} },
-      "light_blue": {"textures": {"all": "coloredstone:blocks/lightblue"} },
-      "lime": {"textures": {"all": "coloredstone:blocks/lime"} },
-      "magenta": {"textures": {"all": "coloredstone:blocks/magenta"} },
-      "orange": {"textures": {"all": "coloredstone:blocks/orange"} },
-      "pink": {"textures": {"all": "coloredstone:blocks/pink"} },
-      "purple": {"textures": {"all": "coloredstone:blocks/purple"} },
+      "black": {"textures": {"all": "coloredstone:blocks/block/black"} },
+      "blue": {"textures": {"all": "coloredstone:blocks/block/blue"} },
+      "brown": {"textures": {"all": "coloredstone:blocks/block/brown"} },
+      "cyan": {"textures": {"all": "coloredstone:blocks/block/cyan"} },
+      "gray": {"textures": {"all": "coloredstone:blocks/block/gray"} },
+      "green": {"textures": {"all": "coloredstone:blocks/block/green"} },
+      "light_blue": {"textures": {"all": "coloredstone:blocks/block/lightblue"} },
+      "lime": {"textures": {"all": "coloredstone:blocks/block/lime"} },
+      "magenta": {"textures": {"all": "coloredstone:blocks/block/magenta"} },
+      "orange": {"textures": {"all": "coloredstone:blocks/block/orange"} },
+      "pink": {"textures": {"all": "coloredstone:blocks/block/pink"} },
+      "purple": {"textures": {"all": "coloredstone:blocks/block/purple"} },
       "red": {"textures": {"all": "blocks/redstone_block"} },
-      "silver": {"textures": {"all": "coloredstone:blocks/silver"} },
-      "white": {"textures": {"all": "coloredstone:blocks/white"} },
-      "yellow": {"textures": {"all": "coloredstone:blocks/yellow"} }
+      "silver": {"textures": {"all": "coloredstone:blocks/block/silver"} },
+      "white": {"textures": {"all": "coloredstone:blocks/block/white"} },
+      "yellow": {"textures": {"all": "coloredstone:blocks/block/yellow"} }
     }
   }
 }
