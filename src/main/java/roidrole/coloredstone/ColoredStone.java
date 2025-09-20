@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import roidrole.coloredstone.blocks.BlockColorstoneRepeater;
 import roidrole.coloredstone.blocks.BlockColorstoneWire;
+import roidrole.coloredstone.items.ItemBlockLamp;
 import roidrole.coloredstone.items.ItemBlockRedstone;
 
 import java.util.EnumMap;
@@ -60,6 +61,7 @@ public class ColoredStone {
             ForgeRegistries.BLOCKS.register(block);
         }
         ForgeRegistries.ITEMS.register(ItemBlockRedstone.INSTANCE);
+        ForgeRegistries.ITEMS.register(ItemBlockLamp.INSTANCE);
     }
 
     @SubscribeEvent
@@ -70,6 +72,10 @@ public class ColoredStone {
         for (int i = 0; i < 16; i++) {
             ModelLoader.setCustomModelResourceLocation(ItemBlockRedstone.INSTANCE, i, new ModelResourceLocation(
                 new ResourceLocation("minecraft", "redstone_block"),
+                "color="+EnumDyeColor.byMetadata(i).getDyeColorName())
+            );
+            ModelLoader.setCustomModelResourceLocation(ItemBlockLamp.INSTANCE, i, new ModelResourceLocation(
+                new ResourceLocation("minecraft", "redstone_lamp"),
                 "color="+EnumDyeColor.byMetadata(i).getDyeColorName())
             );
         }
