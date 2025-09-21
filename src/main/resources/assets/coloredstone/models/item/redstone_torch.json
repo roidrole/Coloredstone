@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "coloredstone:blocks/torch/on/purple"
+        "layer0": "blocks/redstone_torch_on"
     }
 }
