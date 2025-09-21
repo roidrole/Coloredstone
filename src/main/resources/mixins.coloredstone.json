@@ -8,7 +8,8 @@
 	"mixins": [
 		"MixinBlockCompressedPowered",
 		"MixinBlockRedstoneDiode",
-		"MixinBlockRedstoneLight"
+		"MixinBlockRedstoneLight",
+		"MixinBlockRedstoneTorch"
 	],
 	"server": [],
 	"client": []

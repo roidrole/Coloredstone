@@ -17,6 +17,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import roidrole.coloredstone.blocks.BlockColorstoneComparator;
 import roidrole.coloredstone.blocks.BlockColorstoneRepeater;
+import roidrole.coloredstone.blocks.BlockColorstoneTorch;
 import roidrole.coloredstone.blocks.BlockColorstoneWire;
 import roidrole.coloredstone.items.ItemBlockLamp;
 import roidrole.coloredstone.items.ItemBlockRedstone;
@@ -29,6 +30,7 @@ import java.util.Map;
 public class ColoredStone {
     public static Map<EnumDyeColor, Item> dustMap = new EnumMap<>(EnumDyeColor.class);
     public static Block[] dustArray = new Block[16];
+    public static Item[] itemBlockTorchArray = new Item[16];
 
     @Mod.EventHandler
     public void construction(FMLConstructionEvent event){
@@ -54,9 +56,15 @@ public class ColoredStone {
             new BlockColorstoneRepeater(true, color);
             new BlockColorstoneRepeater(false, color);
             BlockColorstoneRepeater.poweredMap.get(color).item = BlockColorstoneRepeater.unpoweredMap.get(color).item;
+
             new BlockColorstoneComparator(true, color);
             new BlockColorstoneComparator(false, color);
             BlockColorstoneComparator.poweredMap.get(color).item = BlockColorstoneComparator.unpoweredMap.get(color).item;
+
+            BlockColorstoneTorch torchLit = new BlockColorstoneTorch(true, color);
+            BlockColorstoneTorch torchUnlit = new BlockColorstoneTorch(false, color, torchLit.item);
+            torchUnlit.lit = torchLit;
+            torchLit.unlit = torchUnlit;
         }
         for(Item item : dustMap.values()){
             ForgeRegistries.ITEMS.register(item);
@@ -88,6 +96,9 @@ public class ColoredStone {
         }
         for(BlockColorstoneComparator block : BlockColorstoneComparator.unpoweredMap.values()){
             ModelLoader.setCustomModelResourceLocation(block.item, 0, new ModelResourceLocation(block.item.getRegistryName().toString()));
+        }
+        for(Item item : itemBlockTorchArray){
+            ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(item.getRegistryName().toString()));
         }
     }
 }

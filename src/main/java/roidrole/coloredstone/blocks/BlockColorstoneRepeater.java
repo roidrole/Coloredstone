@@ -70,7 +70,4 @@ public class BlockColorstoneRepeater extends BlockRedstoneRepeater {
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		return new ItemStack(item);
 	}
-
-	//Go back to mixins?
-	//It's just hard making sure the repeater keeps its color without a tile entity
 }

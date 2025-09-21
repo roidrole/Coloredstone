@@ -1,0 +1,17 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"torch": "coloredstone:blocks/torch/off/yellow"
+		}
+	},
+	"variants": {
+		"facing": {
+			"up": {"model": "torch"},
+			"east": {"model": "torch_wall"},
+			"south": {"model": "torch_wall", "y": 90},
+			"west": {"model": "torch_wall", "y": 180},
+			"north": {"model": "torch_wall", "y": 270}
+		}
+	}
+}

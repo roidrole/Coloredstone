@@ -1,6 +1,5 @@
 TODO :
-- Add torches
 - Add oredicts
 - Add recipes
 - Handle remaining vanilla items
-- Make the repeater actually show a horizontal bar when locked
+- Fix repeater locked bar
