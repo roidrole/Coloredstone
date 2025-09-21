@@ -19,7 +19,6 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import roidrole.coloredstone.items.ItemBlockLamp;
-import roidrole.coloredstone.items.ItemBlockRedstone;
 
 import static net.minecraft.block.BlockColored.COLOR;
 
@@ -58,7 +57,7 @@ public abstract class MixinBlockRedstoneLight extends Block {
 
 	@Override
 	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
-		return new ItemStack(ItemBlockRedstone.INSTANCE, 1, state.getValue(COLOR).getMetadata());
+		return new ItemStack(ItemBlockLamp.INSTANCE, 1, state.getValue(COLOR).getMetadata());
 	}
 
 	@Redirect(

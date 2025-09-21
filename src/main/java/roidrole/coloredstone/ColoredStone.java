@@ -48,19 +48,13 @@ public class ColoredStone {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        for(EnumDyeColor color : EnumDyeColor.values()){
-            dustMap.put(color, new ItemBlock(new BlockColorstoneWire(color)){{
+        for(EnumDyeColor color : EnumDyeColor.values()) {
+            dustMap.put(color, new ItemBlock(new BlockColorstoneWire(color)) {{
                 this.setRegistryName(block.getRegistryName());
                 this.setTranslationKey(block.getTranslationKey().substring(5));
             }});
-            new BlockColorstoneRepeater(true, color);
-            new BlockColorstoneRepeater(false, color);
-            BlockColorstoneRepeater.poweredMap.get(color).item = BlockColorstoneRepeater.unpoweredMap.get(color).item;
-
-            new BlockColorstoneComparator(true, color);
-            new BlockColorstoneComparator(false, color);
-            BlockColorstoneComparator.poweredMap.get(color).item = BlockColorstoneComparator.unpoweredMap.get(color).item;
-
+        }
+        for(EnumDyeColor color : EnumDyeColor.values()) {
             BlockColorstoneTorch torchLit = new BlockColorstoneTorch(true, color);
             BlockColorstoneTorch torchUnlit = new BlockColorstoneTorch(false, color, torchLit.item);
             torchUnlit.lit = torchLit;
@@ -71,6 +65,16 @@ public class ColoredStone {
         }
         for(Block block : dustArray){
             ForgeRegistries.BLOCKS.register(block);
+        }
+        for(EnumDyeColor color : EnumDyeColor.values()) {
+            new BlockColorstoneRepeater(true, color);
+            new BlockColorstoneRepeater(false, color);
+            BlockColorstoneRepeater.poweredMap.get(color).item = BlockColorstoneRepeater.unpoweredMap.get(color).item;
+        }
+        for(EnumDyeColor color : EnumDyeColor.values()) {
+            new BlockColorstoneComparator(true, color);
+            new BlockColorstoneComparator(false, color);
+            BlockColorstoneComparator.poweredMap.get(color).item = BlockColorstoneComparator.unpoweredMap.get(color).item;
         }
         ForgeRegistries.ITEMS.register(ItemBlockRedstone.INSTANCE);
         ForgeRegistries.ITEMS.register(ItemBlockLamp.INSTANCE);
