@@ -15,6 +15,7 @@ import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import roidrole.coloredstone.blocks.BlockColorstoneComparator;
 import roidrole.coloredstone.blocks.BlockColorstoneRepeater;
 import roidrole.coloredstone.blocks.BlockColorstoneWire;
 import roidrole.coloredstone.items.ItemBlockLamp;
@@ -53,6 +54,9 @@ public class ColoredStone {
             new BlockColorstoneRepeater(true, color);
             new BlockColorstoneRepeater(false, color);
             BlockColorstoneRepeater.poweredMap.get(color).item = BlockColorstoneRepeater.unpoweredMap.get(color).item;
+            new BlockColorstoneComparator(true, color);
+            new BlockColorstoneComparator(false, color);
+            BlockColorstoneComparator.poweredMap.get(color).item = BlockColorstoneComparator.unpoweredMap.get(color).item;
         }
         for(Item item : dustMap.values()){
             ForgeRegistries.ITEMS.register(item);
@@ -80,6 +84,9 @@ public class ColoredStone {
             );
         }
         for(BlockColorstoneRepeater block : BlockColorstoneRepeater.unpoweredMap.values()){
+            ModelLoader.setCustomModelResourceLocation(block.item, 0, new ModelResourceLocation(block.item.getRegistryName().toString()));
+        }
+        for(BlockColorstoneComparator block : BlockColorstoneComparator.unpoweredMap.values()){
             ModelLoader.setCustomModelResourceLocation(block.item, 0, new ModelResourceLocation(block.item.getRegistryName().toString()));
         }
     }

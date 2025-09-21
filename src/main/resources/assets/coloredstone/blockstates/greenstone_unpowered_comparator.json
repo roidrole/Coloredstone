@@ -1,0 +1,37 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"particle": "coloredstone:blocks/comparator/off/green",
+			"unlit": "coloredstone:blocks/torch/off/green",
+			"lit": "coloredstone:blocks/torch/on/green",
+			"slab": "blocks/stone_slab_top"
+		}
+	},
+	"variants": {
+		"facing": {
+			"south": {},
+			"west": {"y": 90},
+			"north": {"y": 180},
+			"east": {"y": 270}
+		},
+		"mode": {
+			"subtract": {"submodel": "coloredstone:comparator/substract"},
+			"compare": {"submodel": "coloredstone:comparator/compare"}
+		},
+		"powered": {
+			"true": {
+				"model": "coloredstone:comparator/lit",
+				"textures": {
+					"top": "coloredstone:blocks/comparator/on/green"
+				}
+			},
+			"false": {
+				"model": "coloredstone:comparator/unlit",
+				"textures": {
+					"top": "coloredstone:blocks/comparator/off/green"
+				}
+			}
+		}
+	}
+}

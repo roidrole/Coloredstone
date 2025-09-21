@@ -3,7 +3,7 @@
 	"defaults": {
 		"model": "coloredstone:repeater/common",
 		"textures": {
-			"torch": "coloredstone:blocks/torch/off/lightblue",
+			"torch": "coloredstone:blocks/torch/off/light_blue",
 			"top": "blocks/repeater_off"
 		}
 	},
