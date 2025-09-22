@@ -4,7 +4,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.ItemCloth;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
 import roidrole.coloredstone.Tags;
 
 public class ItemBlockRedstone extends ItemCloth {
@@ -12,7 +11,6 @@ public class ItemBlockRedstone extends ItemCloth {
 	public ItemBlockRedstone() {
 		super(Blocks.REDSTONE_BLOCK);
 		this.setRegistryName(Tags.MOD_ID, "colorstone_block");
-		OreDictionary.registerOre("dustRedstone", this);
 	}
 
 	@Override

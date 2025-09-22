@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.event.FMLConstructionEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.OreDictionary;
 import roidrole.coloredstone.blocks.BlockColorstoneComparator;
 import roidrole.coloredstone.blocks.BlockColorstoneRepeater;
 import roidrole.coloredstone.blocks.BlockColorstoneTorch;
@@ -49,16 +50,16 @@ public class ColoredStone {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         for(EnumDyeColor color : EnumDyeColor.values()) {
-            dustMap.put(color, new ItemBlockDust(new BlockColorstoneWire(color)));
+            Item currentItem = new ItemBlockDust(new BlockColorstoneWire(color));
+            dustMap.put(color, currentItem);
+            ForgeRegistries.ITEMS.register(currentItem);
+            OreDictionary.registerOre("dustRedstone", currentItem);
         }
         for(EnumDyeColor color : EnumDyeColor.values()) {
             BlockColorstoneTorch torchLit = new BlockColorstoneTorch(true, color);
             BlockColorstoneTorch torchUnlit = new BlockColorstoneTorch(false, color, torchLit.item);
             torchUnlit.lit = torchLit;
             torchLit.unlit = torchUnlit;
-        }
-        for(Item item : dustMap.values()){
-            ForgeRegistries.ITEMS.register(item);
         }
         for(Block block : dustArray){
             ForgeRegistries.BLOCKS.register(block);
@@ -74,6 +75,7 @@ public class ColoredStone {
             BlockColorstoneComparator.poweredMap.get(color).item = BlockColorstoneComparator.unpoweredMap.get(color).item;
         }
         ForgeRegistries.ITEMS.register(ItemBlockRedstone.INSTANCE);
+        OreDictionary.registerOre("blockRedstone", ItemBlockRedstone.INSTANCE);
         ForgeRegistries.ITEMS.register(ItemBlockLamp.INSTANCE);
     }
 
