@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" T ",
+		"TQT",
+		"SSS"
+	],
+	"key": {
+		"T": {"item": "coloredstone:whitestone_torch"},
+		"Q": {
+			"type": "forge:ore_dict",
+			"ore": "gemQuartz"
+		},
+		"S": {
+			"type": "forge:ore_dict",
+			"ore": "stone"
+		}
+	},
+	"result": {
+		"item": "coloredstone:whitestone_comparator"
+	}
+}

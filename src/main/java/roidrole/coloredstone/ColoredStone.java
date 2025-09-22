@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -19,6 +18,7 @@ import roidrole.coloredstone.blocks.BlockColorstoneComparator;
 import roidrole.coloredstone.blocks.BlockColorstoneRepeater;
 import roidrole.coloredstone.blocks.BlockColorstoneTorch;
 import roidrole.coloredstone.blocks.BlockColorstoneWire;
+import roidrole.coloredstone.items.ItemBlockDust;
 import roidrole.coloredstone.items.ItemBlockLamp;
 import roidrole.coloredstone.items.ItemBlockRedstone;
 
@@ -49,10 +49,7 @@ public class ColoredStone {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         for(EnumDyeColor color : EnumDyeColor.values()) {
-            dustMap.put(color, new ItemBlock(new BlockColorstoneWire(color)) {{
-                this.setRegistryName(block.getRegistryName());
-                this.setTranslationKey(block.getTranslationKey().substring(5));
-            }});
+            dustMap.put(color, new ItemBlockDust(new BlockColorstoneWire(color)));
         }
         for(EnumDyeColor color : EnumDyeColor.values()) {
             BlockColorstoneTorch torchLit = new BlockColorstoneTorch(true, color);

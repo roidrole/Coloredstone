@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"X",
+		"#"
+	],
+	"key": {
+		"#": {
+			"type": "forge:ore_dict",
+			"ore": "stickWood"
+		},
+		"X": {
+			"item": "coloredstone:light_bluestone_wire"
+		}
+	},
+	"result": {
+		"item": "coloredstone:light_bluestone_torch"
+	}
+}

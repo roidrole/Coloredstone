@@ -1,0 +1,15 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"DDD",
+		"DDD",
+		"DDD"
+	],
+	"key": {
+		"D": {"item": "coloredstone:orangestone_wire"}
+	},
+	"result": {
+		"item": "coloredstone:colorstone_block",
+		"data": 1
+	}
+}

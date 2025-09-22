@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"TDT",
+		"SSS"
+	],
+	"key": {
+		"T": {"item": "coloredstone:light_bluestone_torch"},
+		"D": {"item": "coloredstone:light_bluestone_wire"},
+		"S": {
+			"type": "forge:ore_dict",
+			"ore": "stone"
+		}
+	},
+	"result": {
+		"item": "coloredstone:light_bluestone_repeater"
+	}
+}
