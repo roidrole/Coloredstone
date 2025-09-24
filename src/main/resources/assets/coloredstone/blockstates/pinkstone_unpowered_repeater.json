@@ -4,7 +4,7 @@
 		"model": "coloredstone:repeater/common",
 		"textures": {
 			"torch": "coloredstone:blocks/torch/off/pink",
-			"top": "blocks/repeater_off"
+			"top": "coloredstone:blocks/repeater/off/pink"
 		}
 	},
 	"variants": {
