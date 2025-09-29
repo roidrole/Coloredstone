@@ -27,7 +27,7 @@ import java.util.EnumMap;
 import java.util.Map;
 
 
-@Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION)
+@Mod(modid = Tags.MOD_ID, name = Tags.MOD_NAME, version = Tags.VERSION, dependencies = "required-after:mixinbooter;")
 public class ColoredStone {
     public static Map<EnumDyeColor, Item> dustMap = new EnumMap<>(EnumDyeColor.class);
     public static Block[] dustArray = new Block[16];
